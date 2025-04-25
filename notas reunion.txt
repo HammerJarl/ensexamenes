@@ -1,0 +1,10 @@
+*errores en preguntas:
+>sale un examen bien, el otro comete errores al llenado de las respuestas y randomiza incisos en lugar de respuestas
+
+*Coordinación academica pide ampliar a 500 pregs
+>que no tenga que subirse las preguntas en consola
+>leer desde documentos word, pdf, etc
+!escogemos word
+
+*se solicita una interfaz de usuario
+>sugerencia con contraseña

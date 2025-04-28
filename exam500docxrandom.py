@@ -109,14 +109,20 @@ def crear_documento_examen(preguntas, nombre_examen, nombre_archivo):
     doc.save(nombre_archivo)
     print(f"Examen guardado como {nombre_archivo}")
 
-# Limpiar BD
-def limpiar_base_datos():
+# Limpiar BD admin
+def limpiar_base_datos(contraseña):
+    CONTRASEÑA_ADMIN = "The.Emperor40k" # pass
+    if contraseña != CONTRASEÑA_ADMIN:
+        print("Contraseña incorrecta. Acceso denegado.")
+        return False
+    
     conn = sqlite3.connect('base_datos_examenes.db')
     cursor = conn.cursor()
     cursor.execute('DELETE FROM preguntas')
     conn.commit()
     conn.close()
-    print("Base de datos limpiada.")
+    print("Base de datos limpiada exitosamente.")
+    return True
 
 # Menú principal
 def main():

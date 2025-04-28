@@ -21,6 +21,7 @@ logging.basicConfig(
 CONTRASEÑA_ADMIN_INICIAL = bcrypt.hashpw("The.Emperor40k".encode('utf-8'), bcrypt.gensalt())
 CONTRASEÑA_ADMIN = CONTRASEÑA_ADMIN_INICIAL
 
+
 def resource_path(relative_path):
     """Obtiene la ruta absoluta del recurso, funciona tanto para desarrollo como para el .exe empaquetado."""
     if hasattr(sys, '_MEIPASS'):
@@ -31,7 +32,7 @@ def resource_path(relative_path):
 def convertir_a_ico(png_path, ico_path):
     try:
         img = Image.open(png_path)
-        img = img.resize((256, 256), Image.LANCZOS)
+        img = img.resize((512, 512), Image.LANCZOS)
         img.save(ico_path, format='ICO')
         logging.info(f"Imagen convertida de {png_path} a {ico_path}")
         return True
@@ -238,34 +239,49 @@ def cambiar_contraseña(contraseña_actual, nueva_contraseña, usuario="Administ
 def mostrar_pantalla_carga(root):
     splash = tk.Toplevel(root)
     splash.overrideredirect(True)
-    splash.geometry("600x400")
-    splash.configure(bg="#aac7e3")
 
-    splash_image_path = resource_path(os.path.join("Scripts", "ironpriestlogo.jpg"))
+    splash_width = 440
+    splash_height = 650
+    splash.geometry(f"{splash_width}x{splash_height}")
+
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x_position = (screen_width - splash_width) // 2
+    y_position = (screen_height - splash_height) // 2
+    splash.geometry(f"{splash_width}x{splash_height}+{x_position}+{y_position}")
+
+    splash.configure(bg="#FF00FF")
+    try:
+        splash.attributes('-transparentcolor', '#FF00FF')
+    except Exception as e:
+        logging.warning(f"Transparencia no soportada en esta plataforma: {e}")
+        splash.configure(bg="#aac7e3")
+
+    splash_image_path = resource_path(os.path.join("Scripts", "IPlogo.png"))
     try:
         splash_img = Image.open(splash_image_path)
-        splash_img = splash_img.resize((500, 500), Image.LANCZOS)
+        splash_img = splash_img.resize((440, 650), Image.LANCZOS)
         splash_photo = ImageTk.PhotoImage(splash_img)
-        splash_label = tk.Label(splash, image=splash_photo, bg="#aac7e3")
+        splash_label = tk.Label(splash, image=splash_photo, bg="#FF00FF")
         splash_label.image = splash_photo
         splash_label.pack(expand=True, fill="both")
     except Exception as e:
         logging.error(f"Error al cargar la imagen de la pantalla de carga ({splash_image_path}): {e}")
-        splash_label = tk.Label(splash, text="Cargando...", font=("Helvetica", 20), bg="#aac7e3", fg="#003087")
+        splash_label = tk.Label(splash, text="Cargando...", font=("Helvetica", 20), bg="#FF00FF", fg="#003087")
         splash_label.pack(expand=True, fill="both")
 
     progress = ttk.Progressbar(splash, orient="horizontal", length=300, mode="determinate")
     progress.place(relx=0.5, rely=0.9, anchor="center")
 
     steps = 100
-    delay = 5000 // steps
+    delay = 6000 // steps
     for i in range(steps + 1):
         progress['value'] = i
         splash.update()
         time.sleep(delay / 1000)
 
     splash.destroy()
-
+    
 class AppExamenes:
     def __init__(self, root):
         self.root = root
@@ -301,11 +317,11 @@ class AppExamenes:
         ttk.Button(frame, text="Limpiar Base de Datos", command=self.limpiar_base).pack(pady=10, fill="x")
         ttk.Button(frame, text="Cambiar Contraseña de Administrador", command=self.cambiar_contrasena).pack(pady=10, fill="x")
         ttk.Button(frame, text="Salir", command=root.quit).pack(pady=10, fill="x")
-
+        #der
         ens_logo_path = resource_path(os.path.join("Scripts", "ens_logo.png"))
         try:
             ens_img = Image.open(ens_logo_path)
-            ens_img = ens_img.resize((85, 120), Image.LANCZOS)
+            ens_img = ens_img.resize((90, 120), Image.LANCZOS)
             ens_photo = ImageTk.PhotoImage(ens_img)
             ens_label = tk.Label(frame, image=ens_photo, bg="#f0f4f8")
             ens_label.image = ens_photo
@@ -314,7 +330,33 @@ class AppExamenes:
             logging.error(f"Error al cargar el logo de la ENS ({ens_logo_path}): {e}")
             ens_label = tk.Label(frame, text="Logo no disponible", font=("Helvetica", 10), bg="#f0f4f8", fg="#003087")
             ens_label.place(relx=1.0, rely=1.0, anchor="se")
-    
+        #izq
+        it_logo_path = resource_path(os.path.join("Scripts", "ironpriest.png"))
+        try:
+            it_img = Image.open(it_logo_path)
+            it_img = it_img.resize((110, 120), Image.LANCZOS)
+            it_photo = ImageTk.PhotoImage(it_img)
+            it_label = tk.Label(frame, image=it_photo, bg="#f0f4f8")
+            it_label.image = it_photo
+            it_label.place(relx=0.0, rely=1.0, anchor="sw")
+        except Exception as e:
+            logging.error(f"Error al cargar el logo de la ENS ({it_logo_path}): {e}")
+            it_label = tk.Label(frame, text="Logo no disponible", font=("Helvetica", 10), bg="#f0f4f8", fg="#003087")
+            it_label.place(relx=0.0, rely=1.0, anchor="sw")
+        #mid
+        cr_logo_path = resource_path(os.path.join("Scripts", "copyright.png"))
+        try:
+            cr_img = Image.open(cr_logo_path)
+            cr_img = cr_img.resize((250, 125), Image.LANCZOS)
+            cr_photo = ImageTk.PhotoImage(cr_img)
+            cr_label = tk.Label(frame, image=cr_photo, bg="#f0f4f8")
+            cr_label.image = cr_photo
+            cr_label.place(relx=0.5, rely=1.0, anchor="s")
+        except Exception as e:
+            logging.error(f"Error al cargar el logo de la ENS ({cr_logo_path}): {e}")
+            cr_label = tk.Label(frame, text="Logo no disponible", font=("Helvetica", 10), bg="#f0f4f8", fg="#003087")
+            cr_label.place(relx=0.5, rely=1.0, anchor="sw")
+
     def cargar_preguntas(self):
         ruta_docx = filedialog.askopenfilename(filetypes=[("Documentos Word", "*.docx")])
         if ruta_docx:

@@ -9,22 +9,20 @@ import logging
 from datetime import datetime
 import bcrypt
 
-# Configurar el sistema de registro (logging)
+# logging
 logging.basicConfig(
     filename='auditoria_examenes.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-# Contraseña inicial (hasheada con bcrypt)
+# Contraseña bcrypt
 CONTRASEÑA_ADMIN_INICIAL = bcrypt.hashpw("The.Emperor40k".encode('utf-8'), bcrypt.gensalt())
 CONTRASEÑA_ADMIN = CONTRASEÑA_ADMIN_INICIAL
 
-# Función para convertir PNG a ICO usando Pillow
 def convertir_a_ico(png_path, ico_path):
     try:
         img = Image.open(png_path)
-        # Redimensionar a un tamaño estándar para iconos (256x256)
         img = img.resize((256, 256), Image.LANCZOS)
         img.save(ico_path, format='ICO')
         logging.info(f"Imagen convertida de {png_path} a {ico_path}")
@@ -33,20 +31,16 @@ def convertir_a_ico(png_path, ico_path):
         logging.error(f"Error al convertir {png_path} a ICO: {e}")
         return False
     
-# Convertir imágenes PNG a ICO al inicio del programa
 def preparar_iconos():
-    # Rutas relativas para los archivos PNG e ICO
     scripts_dir = "ensexamenes"
     icono_ejecutable_png = os.path.join(scripts_dir, "ironpriest.png")
     icono_ejecutable_ico = os.path.join(scripts_dir, "ironpriest.ico")
     icono_ventana_png = os.path.join(scripts_dir, "ironpriest.png")
     icono_ventana_ico = os.path.join(scripts_dir, "ironpriest.ico")
 
-# Función para verificar si el texto está en negritas
 def es_negrita(run):
     return run.bold or run.font.bold
 
-# Función para crear la base de datos y la tabla
 def crear_base_datos():
     conn = sqlite3.connect('base_datos_examenes.db')
     cursor = conn.cursor()
@@ -65,7 +59,6 @@ def crear_base_datos():
     conn.commit()
     conn.close()
 
-# Función para extraer preguntas de un documento Word y almacenarlas en la base de datos
 def cargar_preguntas_desde_docx(ruta_docx):
     conn = sqlite3.connect('base_datos_examenes.db')
     cursor = conn.cursor()
@@ -97,7 +90,6 @@ def cargar_preguntas_desde_docx(ruta_docx):
     conn.close()
     logging.info(f"Preguntas cargadas desde {ruta_docx}")
 
-# Función para generar un examen con un número específico de preguntas
 def generar_examen(num_preguntas):
     conn = sqlite3.connect('base_datos_examenes.db')
     cursor = conn.cursor()
@@ -112,7 +104,6 @@ def generar_examen(num_preguntas):
     conn.close()
     return preguntas_seleccionadas, None
 
-# Función para crear un documento Word para un examen
 def crear_documento_examen(preguntas, nombre_examen, nombre_archivo):
     doc = Document()
     doc.add_heading(f'Examen {nombre_examen}', 0)
@@ -136,7 +127,6 @@ def crear_documento_examen(preguntas, nombre_examen, nombre_archivo):
     doc.save(nombre_archivo)
     logging.info(f"Examen {nombre_examen} generado: {nombre_archivo}")
 
-# Función para limpiar la base de datos
 def limpiar_base_datos(contraseña, usuario="Administrador"):
     global CONTRASEÑA_ADMIN
     if not bcrypt.checkpw(contraseña.encode('utf-8'), CONTRASEÑA_ADMIN):
@@ -151,7 +141,6 @@ def limpiar_base_datos(contraseña, usuario="Administrador"):
     logging.info(f"Base de datos limpiada por {usuario}")
     return True
 
-# Función para cambiar la contraseña de administrador
 def cambiar_contraseña(contraseña_actual, nueva_contraseña, usuario="Administrador"):
     global CONTRASEÑA_ADMIN
     if not bcrypt.checkpw(contraseña_actual.encode('utf-8'), CONTRASEÑA_ADMIN):
@@ -162,7 +151,6 @@ def cambiar_contraseña(contraseña_actual, nueva_contraseña, usuario="Administ
     logging.info(f"Contraseña de administrador cambiada por {usuario}")
     return True
 
-# Interfaz gráfica mejorada con tkinter
 class AppExamenes:
     def __init__(self, root):
         self.root = root
@@ -170,29 +158,24 @@ class AppExamenes:
         self.root.geometry("600x400")
         self.root.configure(bg="#aac7e3")  # Fondo spacewolves
         
-        # Icono
         try:
-            self.root.iconbitmap("ironpriest.ico")  # Icono personalizado
+            self.root.iconbitmap("ironpriest.ico")
         except Exception as e:
             logging.error(f"Error al cargar el icono de la ventana: {e}")
         
-        # Estilo para los botones
         self.style = ttk.Style()
         self.style.configure("TButton", font=("Helvetica", 12), padding=10)
         self.style.map("TButton",
                        background=[('active', '#d1e7ff'), ('!active', '#e6f0fa')],
                        foreground=[('active', '#003087'), ('!active', '#003087')])
         
-        # Contenedor principal
         frame = ttk.Frame(root, padding="20", style="Custom.TFrame")
         frame.pack(expand=True, fill="both")
         
         self.style.configure("Custom.TFrame", background="#f0f4f8")
         
-        # Etiqueta de bienvenida
         ttk.Label(frame, text="Generador de Exámenes", font=("Helvetica", 20, "bold"), background="#f0f4f8", foreground="#003087").pack(pady=20)
         
-        # Botones con diseño mejorado
         ttk.Button(frame, text="Cargar Preguntas desde Word", command=self.cargar_preguntas).pack(pady=10, fill="x")
         ttk.Button(frame, text="Generar Exámenes", command=self.generar_examenes).pack(pady=10, fill="x")
         ttk.Button(frame, text="Limpiar Base de Datos", command=self.limpiar_base).pack(pady=10, fill="x")
@@ -317,9 +300,7 @@ class AppExamenes:
         
         ttk.Button(frame, text="Cambiar", command=cambiar).pack(pady=10, fill="x")
 
-# Función principal
 def main():
-    # Preparar iconos al inicio
     preparar_iconos()
 
     crear_base_datos()

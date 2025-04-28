@@ -1,26 +1,5 @@
-2025-04-28 10:24:39,306 - ERROR - Error al cargar el icono de la ventana: bitmap "ironpriest.ico" not defined
-2025-04-28 10:26:42,388 - ERROR - Error al cargar el icono de la ventana: bitmap "ironpriest.ico" not defined
-2025-04-28 15:07:44,530 - WARNING - Scripts\ironpriest.png no encontrado. Se usará el icono predeterminado.
-2025-04-28 15:07:44,576 - ERROR - Error al cargar la imagen de la pantalla de carga (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\Scripts\IPlogo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\Scripts\\IPlogo.png'
-2025-04-28 15:07:50,833 - INFO - Icono de la ventana cargado: C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ironpriest.ico
-2025-04-28 15:07:50,842 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\Scripts\ens_logo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\Scripts\\ens_logo.png'
-2025-04-28 15:07:50,843 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\Scripts\ironpriest.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\Scripts\\ironpriest.png'
-2025-04-28 15:07:50,843 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\Scripts\copyright.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\Scripts\\copyright.png'
-2025-04-28 15:08:39,573 - WARNING - ensexamenes\ironpriest.png no encontrado. Se usará el icono predeterminado.
-2025-04-28 15:08:39,612 - ERROR - Error al cargar la imagen de la pantalla de carga (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\IPlogo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\IPlogo.png'
-2025-04-28 15:08:45,903 - INFO - Icono de la ventana cargado: C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ironpriest.ico
-2025-04-28 15:08:45,911 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\ens_logo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\ens_logo.png'
-2025-04-28 15:08:45,912 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\ironpriest.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\ironpriest.png'
-2025-04-28 15:08:45,912 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\copyright.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\copyright.png'
-2025-04-28 15:09:08,519 - WARNING - ensexamenes\ironpriest.png no encontrado. Se usará el icono predeterminado.
-2025-04-28 15:09:08,560 - ERROR - Error al cargar la imagen de la pantalla de carga (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\IPlogo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\IPlogo.png'
-2025-04-28 15:09:14,852 - INFO - Icono de la ventana cargado: C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ironpriest.ico
-2025-04-28 15:09:14,868 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\ens_logo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\ens_logo.png'
-2025-04-28 15:09:14,869 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\ironpriest.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\ironpriest.png'
-2025-04-28 15:09:14,869 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\copyright.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\copyright.png'
-2025-04-28 15:09:40,178 - WARNING - ensexamenes\ironpriest.png no encontrado. Se usará el icono predeterminado.
-2025-04-28 15:09:40,217 - ERROR - Error al cargar la imagen de la pantalla de carga (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\IPlogo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\IPlogo.png'
-2025-04-28 15:09:46,501 - INFO - Icono de la ventana cargado: C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ironpriest.ico
-2025-04-28 15:09:46,514 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\ens_logo.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\ens_logo.png'
-2025-04-28 15:09:46,516 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\ironpriest.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\ironpriest.png'
-2025-04-28 15:09:46,517 - ERROR - Error al cargar el logo de la ENS (C:\Users\pmollinedo\Documents\GitHub\ensexamenes\ensexamenes\copyright.png): [Errno 2] No such file or directory: 'C:\\Users\\pmollinedo\\Documents\\GitHub\\ensexamenes\\ensexamenes\\copyright.png'
+2025-04-28 15:57:01,743 - WARNING - Scripts\ironpriest.png no encontrado. Se usará el icono predeterminado.
+2025-04-28 15:57:08,176 - INFO - Icono de la ventana cargado: C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI199682\ironpriest.ico
+2025-04-28 15:57:08,233 - ERROR - Error al cargar el logo de la ENS (C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI199682\Scripts\copyright.png): [Errno 2] No such file or directory: 'C:\\Users\\PMOLLI~1\\AppData\\Local\\Temp\\_MEI199682\\Scripts\\copyright.png'
+2025-04-28 16:00:02,968 - WARNING - Scripts\ironpriest.png no encontrado. Se usará el icono predeterminado.
+2025-04-28 16:00:09,386 - INFO - Icono de la ventana cargado: C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI214802\ironpriest.ico

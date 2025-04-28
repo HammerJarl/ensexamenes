@@ -1,0 +1,6 @@
+2025-04-28 15:53:22,501 - WARNING - imagenes\ironpriest.png no encontrado. Se usará el icono predeterminado.
+2025-04-28 15:53:22,553 - ERROR - Error al cargar la imagen de la pantalla de carga (C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI180122\imagenes\IPlogo.png): [Errno 2] No such file or directory: 'C:\\Users\\PMOLLI~1\\AppData\\Local\\Temp\\_MEI180122\\imagenes\\IPlogo.png'
+2025-04-28 15:53:28,848 - INFO - Icono de la ventana cargado: C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI180122\ironpriest.ico
+2025-04-28 15:53:28,855 - ERROR - Error al cargar el logo de la ENS (C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI180122\imagenes\ens_logo.png): [Errno 2] No such file or directory: 'C:\\Users\\PMOLLI~1\\AppData\\Local\\Temp\\_MEI180122\\imagenes\\ens_logo.png'
+2025-04-28 15:53:28,856 - ERROR - Error al cargar el logo de la ENS (C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI180122\imagenes\ironpriest.png): [Errno 2] No such file or directory: 'C:\\Users\\PMOLLI~1\\AppData\\Local\\Temp\\_MEI180122\\imagenes\\ironpriest.png'
+2025-04-28 15:53:28,856 - ERROR - Error al cargar el logo de la ENS (C:\Users\PMOLLI~1\AppData\Local\Temp\_MEI180122\imagenes\copyright.png): [Errno 2] No such file or directory: 'C:\\Users\\PMOLLI~1\\AppData\\Local\\Temp\\_MEI180122\\imagenes\\copyright.png'

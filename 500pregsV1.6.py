@@ -27,8 +27,9 @@ def resource_path(relative_path):
     if hasattr(sys, '_MEIPASS'):
         return os.path.join(sys._MEIPASS, relative_path)
     else:
-        return os.path.join(os.path.abspath("."), relative_path)
-
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        return os.path.join(base_path, relative_path)
+    
 def convertir_a_ico(png_path, ico_path):
     try:
         img = Image.open(png_path)
@@ -41,7 +42,7 @@ def convertir_a_ico(png_path, ico_path):
         return False
 
 def preparar_iconos():
-    scripts_dir = "ensexamenes"
+    scripts_dir = "imagenes"
     icono_png = os.path.join(scripts_dir, "ironpriest.png")
     icono_ico = "ironpriest.ico"
 
@@ -257,7 +258,7 @@ def mostrar_pantalla_carga(root):
         logging.warning(f"Transparencia no soportada en esta plataforma: {e}")
         splash.configure(bg="#aac7e3")
 
-    splash_image_path = resource_path(os.path.join("ensexamenes", "IPlogo.png"))
+    splash_image_path = resource_path(os.path.join("imagenes", "IPlogo.png"))
     try:
         splash_img = Image.open(splash_image_path)
         splash_img = splash_img.resize((440, 650), Image.LANCZOS)
@@ -318,7 +319,7 @@ class AppExamenes:
         ttk.Button(frame, text="Cambiar Contraseña de Administrador", command=self.cambiar_contrasena).pack(pady=10, fill="x")
         ttk.Button(frame, text="Salir", command=root.quit).pack(pady=10, fill="x")
         #der
-        ens_logo_path = resource_path(os.path.join("ensexamenes", "ens_logo.png"))
+        ens_logo_path = resource_path(os.path.join("imagenes", "ens_logo.png"))
         try:
             ens_img = Image.open(ens_logo_path)
             ens_img = ens_img.resize((90, 120), Image.LANCZOS)
@@ -331,7 +332,7 @@ class AppExamenes:
             ens_label = tk.Label(frame, text="Logo no disponible", font=("Helvetica", 10), bg="#f0f4f8", fg="#003087")
             ens_label.place(relx=1.0, rely=1.0, anchor="se")
         #izq
-        it_logo_path = resource_path(os.path.join("ensexamenes", "ironpriest.png"))
+        it_logo_path = resource_path(os.path.join("imagenes", "ironpriest.png"))
         try:
             it_img = Image.open(it_logo_path)
             it_img = it_img.resize((110, 120), Image.LANCZOS)
@@ -344,7 +345,7 @@ class AppExamenes:
             it_label = tk.Label(frame, text="Logo no disponible", font=("Helvetica", 10), bg="#f0f4f8", fg="#003087")
             it_label.place(relx=0.0, rely=1.0, anchor="sw")
         #mid
-        cr_logo_path = resource_path(os.path.join("ensexamenes", "copyright.png"))
+        cr_logo_path = resource_path(os.path.join("imagenes", "copyright.png"))
         try:
             cr_img = Image.open(cr_logo_path)
             cr_img = cr_img.resize((250, 125), Image.LANCZOS)

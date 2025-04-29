@@ -21,7 +21,6 @@ logging.basicConfig(
 CONTRASEÑA_ADMIN_INICIAL = bcrypt.hashpw("The.Emperor40k".encode('utf-8'), bcrypt.gensalt())
 CONTRASEÑA_ADMIN = CONTRASEÑA_ADMIN_INICIAL
 
-
 def resource_path(relative_path):
     """Obtiene la ruta absoluta del recurso, funciona tanto para desarrollo como para el .exe empaquetado."""
     if hasattr(sys, '_MEIPASS'):
@@ -33,7 +32,7 @@ def resource_path(relative_path):
 def convertir_a_ico(png_path, ico_path):
     try:
         img = Image.open(png_path)
-        img = img.resize((512, 512), Image.LANCZOS)
+        img = img.resize((256, 256), Image.LANCZOS)
         img.save(ico_path, format='ICO')
         logging.info(f"Imagen convertida de {png_path} a {ico_path}")
         return True
